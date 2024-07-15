@@ -46,3 +46,4 @@ docker run -d \
 
 1.  RTLS Integration Example and Documentation of the protocol - https://github.com/lukaskaplan/aruba-rtls - see **RTLS_integrationv6.docx** .
 2.  ArubaOS 8.10 User Guide - https://www.arubanetworks.com/techdocs/ArubaOS-8.x-Books/810/ArubaOS-8.10.0.0-User-Guide.pdf
+3.  Aruba DEMO reference guide - https://iot-utilities.arubademo.de/
