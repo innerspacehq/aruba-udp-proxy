@@ -26,35 +26,14 @@ The docker container can be run standalone, or using the docker-compose.yml file
 
 ## Usage
 
-### Docker Run
-```
-docker run -d \
-  --name udp-proxy \
-  --restart unless-stopped \
-  --hostname udp-proxy \
-  --domainname innerspace-udp-proxy \
-  --memory "1G" \
-  --cpus "1" \
-  -e HOST=${HOST} \
-  -e PORT=${PORT} \
-  -e PASSPHRASE=${PASSPHRASE} \
-  -e HMAC=${HMAC} \
-  -p ${HOST}:${PORT}:${PORT}/udp \
-  innerspace/udp-proxy:1.0.0 \
-  python udp_proxy.py
-```
-
 ### Docker Compose
-```
+```yaml
 version: "3.6"
 services:
   udp-proxy:
     image: innerspace/udp-proxy:1.0.0
-    environment:
-      HOST: ${HOST}
-      PORT: ${PORT}
-      PASSPHRASE: ${PASSPHRASE}
-      HMAC: ${HMAC}
+    env_file:
+      - .env
     ports:
       - "${HOST}:${PORT}:${PORT}/udp"
 ```
