@@ -1,7 +1,7 @@
 version: "3.6"
 services:
     udp-proxy:
-        image: docker.nexus.innerspace.io/innerspace/udp-proxy:latest
+        image: innerspace/udp-proxy:1.0.0
         domainname: innerspace-udp-proxy
         restart: unless-stopped
         environment:

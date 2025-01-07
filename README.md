@@ -24,12 +24,15 @@ Packaged up as a Docker container, the only requirements are that the PASSPHRASE
 
 The docker container can be run standalone, or using the docker-compose.yml file
 
+## Usage
+
+### Docker Run
 ```
 docker run -d \
   --name udp-proxy \
   --restart unless-stopped \
   --hostname udp-proxy \
-  --domainname innerrspace-udp-proxy \
+  --domainname innerspace-udp-proxy \
   --memory "1G" \
   --cpus "1" \
   -e HOST=${HOST} \
@@ -37,10 +40,24 @@ docker run -d \
   -e PASSPHRASE=${PASSPHRASE} \
   -e HMAC=${HMAC} \
   -p ${HOST}:${PORT}:${PORT}/udp \
-  aruba-udp-proxy:latest \
+  innerspace/udp-proxy:1.0.0 \
   python udp_proxy.py
 ```
 
+### Docker Compose
+```
+version: "3.6"
+services:
+  udp-proxy:
+    image: innerspace/udp-proxy:1.0.0
+    environment:
+      HOST: ${HOST}
+      PORT: ${PORT}
+      PASSPHRASE: ${PASSPHRASE}
+      HMAC: ${HMAC}
+    ports:
+      - "${HOST}:${PORT}:${PORT}/udp"
+```
 
 ## References
 
