@@ -2,6 +2,7 @@ version: "3.6"
 services:
     udp-proxy:
         image: innerspace/udp-proxy:1.0.0
+        container_name: innerspace-udp-proxy
         domainname: innerspace-udp-proxy
         restart: unless-stopped
         env_file:
@@ -15,4 +16,4 @@ services:
             - "${HOST}:${PORT}:${PORT}/udp"
         expose:
             - "${PORT}"
-        command: python udp_proxy.py
+        command: python src/udp_proxy.py
