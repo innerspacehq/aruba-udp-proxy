@@ -27,17 +27,12 @@ The docker container can be run standalone, or using the docker-compose.yml file
 ## Usage
 
 ### Docker Compose
-```yaml
-version: "3.6"
-services:
-  udp-proxy:
-    image: innerspace/udp-proxy:1.0.0
-    env_file:
-      - .env
-    ports:
-      - "${HOST}:${PORT}:${PORT}/udp"
+
+```
+docker compose up -d
 ```
 
+To see details, review the docker-compose.yml file contents.
 ## References
 
 1.  RTLS Integration Example and Documentation of the protocol - https://github.com/lukaskaplan/aruba-rtls - see **RTLS_integrationv6.docx** .
