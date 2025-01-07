@@ -1,14 +1,12 @@
 version: "3.6"
 services:
     udp-proxy:
-        image: docker.nexus.innerspace.io/innerspace/udp-proxy:latest
+        image: innerspace/udp-proxy:1.0.1
+        container_name: innerspace-udp-proxy
         domainname: innerspace-udp-proxy
         restart: unless-stopped
-        environment:
-            HOST: ${HOST}
-            PORT: ${PORT}
-            PASSPHRASE: ${PASSPHRASE}
-            HMAC: ${HMAC}
+        env_file:
+            - .env
         deploy:
             resources:
                 limits:
@@ -18,4 +16,4 @@ services:
             - "${HOST}:${PORT}:${PORT}/udp"
         expose:
             - "${PORT}"
-        command: python udp_proxy.py
+        command: python src/udp_proxy.py

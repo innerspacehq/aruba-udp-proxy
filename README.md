@@ -24,24 +24,15 @@ Packaged up as a Docker container, the only requirements are that the PASSPHRASE
 
 The docker container can be run standalone, or using the docker-compose.yml file
 
+## Usage
+
+### Docker Compose
+
 ```
-docker run -d \
-  --name udp-proxy \
-  --restart unless-stopped \
-  --hostname udp-proxy \
-  --domainname innerrspace-udp-proxy \
-  --memory "1G" \
-  --cpus "1" \
-  -e HOST=${HOST} \
-  -e PORT=${PORT} \
-  -e PASSPHRASE=${PASSPHRASE} \
-  -e HMAC=${HMAC} \
-  -p ${HOST}:${PORT}:${PORT}/udp \
-  aruba-udp-proxy:latest \
-  python udp_proxy.py
+docker compose up -d
 ```
 
-
+To see details, review the docker-compose.yml file contents.
 ## References
 
 1.  RTLS Integration Example and Documentation of the protocol - https://github.com/lukaskaplan/aruba-rtls - see **RTLS_integrationv6.docx** .
